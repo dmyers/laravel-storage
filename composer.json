@@ -1,0 +1,28 @@
+{
+    "name": "dmyers/laravel-storage",
+    "description": "A simple storage filesystem package for Laravel 4.",
+    "keywords": ["laravel", "storage", "filesystem"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Derek Myers",
+            "email": "arcticpro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.x"
+    },
+    "suggest": {
+        "aws/aws-sdk-php": "2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Dmyers\\Storage": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
