@@ -42,10 +42,12 @@ class AmazonS3 extends Base
 	
 	public function get($path)
 	{
-		return (string) $this->client->getObject(array(
+		$object = $this->client->getObject(array(
 			'Bucket' => $this->bucket,
 			'Key'    => $this->computePath($path),
 		));
+
+		return (string) $object['Body'];
 	}
 	
 	public function put($path, $contents)
