@@ -9,10 +9,10 @@ if ($route_path = Storage::config('route_path')) {
 			\App::abort(404, 'File not found');
 		}
 		
-		$type = Storage::type($path);
+		$mime = Storage::mime($path);
 		
 		$response = \Response::make($file, 200, array(
-			'Content-Type' => $type,
+			'Content-Type' => $mime,
 		));
 		
 		return $response;

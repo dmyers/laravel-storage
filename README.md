@@ -82,10 +82,16 @@ Copy a file in storage:
 Storage::copy('user/avatar.jpg', 'user/avatar.bak.jpg');
 ```
 
-Get a file's content type from storage:
+Get a file's type from storage:
 
 ```php
 Storage::type('user/avatar.jpg');
+```
+
+Get a file's mime type from storage:
+
+```php
+Storage::mime('user/avatar.jpg');
 ```
 
 Get a file's size from storage:

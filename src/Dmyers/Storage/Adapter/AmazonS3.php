@@ -115,6 +115,18 @@ class AmazonS3 extends Base
 	 */
 	public function type($path)
 	{
+		if ($this->isDirectory($path)) {
+			return 'dir';
+		}
+		
+		return 'file';
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public function mime($path)
+	{
 		$object = $this->client->headObject(array(
 			'Bucket' => $this->bucket,
 			'Key'    => $this->computePath($path),

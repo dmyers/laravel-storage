@@ -90,13 +90,22 @@ abstract class Base
 	abstract public function copy($path, $target);
 	
 	/**
-	 * Get a file's content type from storage.
+	 * Get a file's type from storage.
 	 *
 	 * @param string $path The path to the file to get the type.
 	 *
 	 * @return string
 	 */
 	abstract public function type($path);
+	
+	/**
+	 * Get a file's mime type from storage.
+	 *
+	 * @param string $path The path to the file to get the mime.
+	 *
+	 * @return string
+	 */
+	abstract public function mime($path);
 	
 	/**
 	 * Get a file's size from storage.

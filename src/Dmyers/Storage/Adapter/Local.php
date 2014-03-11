@@ -74,6 +74,14 @@ class Local extends Base
 	 */
 	public function type($path)
 	{
+		return \File::type($this->computePath($path));
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public function mime($path)
+	{
 		$finfo = new \Finfo(FILEINFO_MIME_TYPE);
 		
 		return $finfo->file($this->computePath($path));
