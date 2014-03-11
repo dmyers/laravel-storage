@@ -19,6 +19,8 @@ class StorageServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('dmyers/laravel-storage');
+		
+		include __DIR__.'/../../routes.php';
 	}
 
 	/**
