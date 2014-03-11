@@ -34,7 +34,7 @@ class Storage
 	public static function instance($name = null)
 	{
 		if (empty($name)) {
-			$name = static::config('storage', 'Local');
+			$name = static::config('default', 'Local');
 		}
 		
 		$adapter = 'Dmyers\\Storage\\Adapter\\'.$name;
