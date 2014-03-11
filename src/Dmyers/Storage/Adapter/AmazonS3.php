@@ -106,7 +106,6 @@ class AmazonS3 extends Base
 			'Bucket'     => $this->bucket,
 			'Key'        => $target,
 			'CopySource' => $this->computePath($path),
-			'ACL'        => $this->config('acl', 'public-read'),
 		));
 	}
 	
