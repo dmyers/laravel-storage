@@ -102,7 +102,7 @@ class AmazonS3 extends Base
 	 */
 	public function copy($path, $target)
 	{
-		return $this->client->putObject(array(
+		return $this->client->copyObject(array(
 			'Bucket'     => $this->bucket,
 			'Key'        => $target,
 			'CopySource' => $this->computePath($path),
