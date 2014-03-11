@@ -50,7 +50,9 @@ class Local extends Base
 	
 	public function type($path)
 	{
-		return \File::type($this->computePath($path));
+		$finfo = new \Finfo(FILEINFO_MIME_TYPE);
+		
+		return $finfo->file($this->computePath($path));
 	}
 	
 	public function size($path)
