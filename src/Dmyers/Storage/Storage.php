@@ -26,7 +26,7 @@ class Storage
 		return call_user_func_array(array($adapter, $method), $args);
 	}
 	
-	public static function config($key, $default)
+	public static function config($key, $default = null)
 	{
 		return \Config::get('laravel-storage::'.$key, $default);
 	}
