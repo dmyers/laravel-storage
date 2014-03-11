@@ -3,7 +3,6 @@
 if ($route_path = Storage::config('route_path')) {
 	// Register storage route.
 	\Route::get($route_path.'{path}', function ($path) {
-		
 		try {
 			$file = Storage::get($path);
 		} catch (\Exception $e) {

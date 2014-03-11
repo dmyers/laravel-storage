@@ -35,11 +35,17 @@ class AmazonS3 extends Base
 		));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function exists($path)
 	{
 		return $this->client->doesObjectExist($this->bucket, $this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function get($path)
 	{
 		return (string) $this->client->getObject(array(
@@ -48,6 +54,9 @@ class AmazonS3 extends Base
 		))->get('Body');
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function put($path, $contents)
 	{
 		return $this->client->putObject(array(
@@ -58,6 +67,9 @@ class AmazonS3 extends Base
 		));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function upload($path, $target)
 	{
 		return $this->client->putObject(array(
@@ -68,6 +80,9 @@ class AmazonS3 extends Base
 		));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function delete($path)
 	{
 		return $this->client->deleteObject(array(
@@ -82,6 +97,9 @@ class AmazonS3 extends Base
 		$this->delete($path);
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function copy($path, $target)
 	{
 		return $this->client->putObject(array(
@@ -92,6 +110,9 @@ class AmazonS3 extends Base
 		));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function type($path)
 	{
 		$object = $this->client->headObject(array(
@@ -102,6 +123,9 @@ class AmazonS3 extends Base
 		return $object['ContentType'];
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function size($path)
 	{
 		$object = $this->client->headObject(array(
@@ -112,6 +136,9 @@ class AmazonS3 extends Base
 		return $object['ContentLength'];
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function lastModified($path)
 	{
 		$object = $this->client->headObject(array(
@@ -122,6 +149,9 @@ class AmazonS3 extends Base
 		return $object['LastModified'];
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function isDirectory($path)
 	{
 		$result = $this->client->listObjects(array(
@@ -133,6 +163,9 @@ class AmazonS3 extends Base
 		return count($result) > 0;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function files($path)
 	{
 		return $this->client->listKeys(array(
@@ -141,6 +174,9 @@ class AmazonS3 extends Base
 		));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function url($path)
 	{
 		return $this->client->getObjectUrl($this->bucket, $this->computePath($path));

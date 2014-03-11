@@ -13,41 +13,65 @@ class Local extends Base
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function exists($path)
 	{
 		return \File::exists($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function get($path)
 	{
 		return \File::get($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function put($path, $contents)
 	{
 		return \File::put($this->computePath($path), $contents);
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function upload($path, $target)
 	{
 		return \File::move($path, $this->computePath($target));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function delete($path)
 	{
 		return \File::delete($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function move($path, $target)
 	{
 		return \File::move($this->computePath($path), $this->computePath($target));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function copy($path, $target)
 	{
 		return \File::copy($this->computePath($path), $this->computePath($target));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function type($path)
 	{
 		$finfo = new \Finfo(FILEINFO_MIME_TYPE);
@@ -55,26 +79,41 @@ class Local extends Base
 		return $finfo->file($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function size($path)
 	{
 		return \File::size($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function lastModified($path)
 	{
 		return \File::move($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function isDirectory($path)
 	{
 		return \File::isDirectory($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function files($path)
 	{
 		return \File::files($this->computePath($path));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function url($path)
 	{
 		return $this->config('url').'/'.$path;

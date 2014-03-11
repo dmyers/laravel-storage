@@ -46,7 +46,7 @@ Check if a file exists in storage:
 Storage::exists('user/avatar.jpg');
 ```
 
-Get a file from storage:
+Get a file's contents from storage:
 
 ```php
 Storage::get('user/avatar.jpg');
