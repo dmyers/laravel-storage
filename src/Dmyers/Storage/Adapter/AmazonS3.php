@@ -91,10 +91,14 @@ class AmazonS3 extends Base
 		));
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function move($path, $target)
 	{
 		$this->copy($path, $target);
-		$this->delete($path);
+		
+		return $this->delete($path);
 	}
 	
 	/**
