@@ -161,4 +161,22 @@ abstract class Base
 	 * @return string
 	 */
 	abstract public function url($path);
+	
+	/**
+	 * Render a file from storage to the browser.
+	 *
+	 * @param string $path The path to the file to render.
+	 *
+	 * @return Response
+	 */
+	public function render($path)
+	{
+		$file = static::get($path);
+		
+		$mime = static::mime($path);
+		
+		return \Response::make($file, 200, array(
+			'Content-Type' => $mime,
+		));
+	}
 }

@@ -129,3 +129,9 @@ Get the full URL to a file in storage:
 ```php
 Storage::url('user/avatar.jpg');
 ```
+
+Render a file from storage to the browser:
+
+```php
+Storage::render('user/avatar.jpg');
+```
