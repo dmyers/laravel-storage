@@ -72,11 +72,14 @@ class AmazonS3 extends Base
 	 */
 	public function upload($path, $target)
 	{
+		$finfo = new \Finfo(FILEINFO_MIME_TYPE);
+		
 		return $this->client->putObject(array(
-			'Bucket'     => $this->bucket,
-			'Key'        => $this->computePath($target),
-			'SourceFile' => $path,
-			'ACL'        => $this->config('acl', 'public-read'),
+			'Bucket'      => $this->bucket,
+			'Key'         => $this->computePath($target),
+			'SourceFile'  => $path,
+			'ContentType' => $finfo->file($path),
+			'ACL'         => $this->config('acl', 'public-read'),
 		));
 	}
 	
