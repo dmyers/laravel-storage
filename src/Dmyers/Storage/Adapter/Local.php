@@ -48,6 +48,14 @@ class Local extends Base
 	/**
 	 * {@inheritDoc}
 	 */
+	public function download($path, $target)
+	{
+		return \File::copy($this->computePath($target), $path);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function delete($path)
 	{
 		return \File::delete($this->computePath($path));

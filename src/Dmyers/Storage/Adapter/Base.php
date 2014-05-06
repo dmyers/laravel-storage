@@ -61,6 +61,16 @@ abstract class Base
 	abstract public function upload($path, $target);
 	
 	/**
+	 * Download a file from storage.
+	 *
+	 * @param string $path   The path to the file to download.
+	 * @param string $target The path to the local file to store.
+	 *
+	 * @return bool
+	 */
+	abstract public function download($path, $target);
+	
+	/**
 	 * Delete a file from storage.
 	 *
 	 * @param string $path The path to the file to delete.

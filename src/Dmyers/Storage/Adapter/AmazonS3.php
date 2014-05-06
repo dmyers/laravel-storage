@@ -83,6 +83,18 @@ class AmazonS3 extends Base
 	/**
 	 * {@inheritDoc}
 	 */
+	public function download($path, $target)
+	{
+		return $this->client->getObject(array(
+			'Bucket' => $this->bucket,
+			'Key'    => $this->computePath($path),
+			'SaveAs' => $target,
+		));
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public function delete($path)
 	{
 		return $this->client->deleteObject(array(

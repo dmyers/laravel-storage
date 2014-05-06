@@ -64,6 +64,12 @@ Upload a file into storage:
 Storage::upload($_FILE['avatar'], 'user/avatar.jpg');
 ```
 
+Download a file from storage:
+
+```php
+Storage::download('user/avatar.jpg', 'tmp/images/user-1/avatar.jpg');
+```
+
 Delete a file from storage:
 
 ```php
