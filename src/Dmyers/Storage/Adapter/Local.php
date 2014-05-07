@@ -42,7 +42,7 @@ class Local extends Base
 	 */
 	public function upload($path, $target)
 	{
-		return \File::move($path, $this->computePath($target));
+		return \File::copy($path, $this->computePath($target));
 	}
 	
 	/**
