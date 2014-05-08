@@ -215,12 +215,12 @@ class AmazonS3 extends Base
 	protected function ensureBucketExists()
 	{
 		if (!$this->bucketExists()) {
-			$client->createBucket(array(
-				'Bucket' => $bucket,
+			$this->client->createBucket(array(
+				'Bucket' => $this->bucket,
 			));
 			
-			$client->waitUntilBucketExists(array(
-				'Bucket' => $bucket,
+			$this->client->waitUntilBucketExists(array(
+				'Bucket' => $this->bucket,
 			));
 		}
 	}
