@@ -50,7 +50,7 @@ class Local extends Base
 	 */
 	public function download($path, $target)
 	{
-		return \File::copy($this->computePath($target), $path);
+		return \File::copy($this->computePath($path), $target);
 	}
 	
 	/**
