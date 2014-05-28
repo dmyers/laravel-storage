@@ -37,16 +37,24 @@ class Storage
 			$name = static::config('default', 'Local');
 		}
 		
+		$adapter = static::adapter($name);
+		
+		$instance = new static();
+		$instance->setAdapter($adapter);
+		
+		return $instance;
+	}
+	
+	public static function adapter($name)
+	{
 		$adapter = 'Dmyers\\Storage\\Adapter\\'.$name;
 		
 		if (!class_exists($adapter)) {
 			throw new \InvalidArgumentException("Storage adapter {$name} does not exist.");
 		}
 		
-		$instance = new static();
 		$adapter = new $adapter();
-		$instance->setAdapter($adapter);
 		
-		return $instance;
+		return $adapter;
 	}
 }
