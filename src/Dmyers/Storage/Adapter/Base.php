@@ -5,17 +5,6 @@ use \Dmyers\Storage\Storage;
 abstract class Base
 {
 	protected $name;
-	protected $bucket;
-	
-	public function getBucket()
-	{
-		return $this->bucket;
-	}
-	
-	public function setBucket($bucket)
-	{
-		$this->bucket = $bucket;
-	}
 	
 	protected function config($key, $default = null)
 	{

@@ -6,6 +6,7 @@ class AmazonS3 extends Base
 {
 	protected $name = 'amazons3';
 	protected $client;
+	protected $bucket;
 	
 	public function __construct()
 	{
@@ -33,6 +34,16 @@ class AmazonS3 extends Base
 			'key'    => $key,
 			'secret' => $secret,
 		));
+	}
+	
+	public function getBucket()
+	{
+		return $this->bucket;
+	}
+	
+	public function setBucket($bucket)
+	{
+		$this->bucket = $bucket;
 	}
 	
 	/**
