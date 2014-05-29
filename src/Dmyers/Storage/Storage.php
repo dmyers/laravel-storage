@@ -3,6 +3,7 @@
 class Storage
 {
 	protected $adapter;
+	protected static $instances;
 	
 	public function getAdapter()
 	{
@@ -37,23 +38,29 @@ class Storage
 			$name = static::config('default', 'Local');
 		}
 		
+		if (isset(static::$instances[$name])) {
+			return static::$instances[$name];
+		}
+		
 		$adapter = static::adapter($name);
 		
 		$instance = new static();
 		$instance->setAdapter($adapter);
+		
+		static::$instances[$name] = $instance;
 		
 		return $instance;
 	}
 	
 	public static function adapter($name)
 	{
-		$adapter = 'Dmyers\\Storage\\Adapter\\'.$name;
+		$class = 'Dmyers\\Storage\\Adapter\\'.$name;
 		
-		if (!class_exists($adapter)) {
+		if (!class_exists($class)) {
 			throw new \InvalidArgumentException("Storage adapter {$name} does not exist.");
 		}
 		
-		$adapter = new $adapter();
+		$adapter = new $class();
 		
 		return $adapter;
 	}
