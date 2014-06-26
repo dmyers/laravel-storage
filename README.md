@@ -38,6 +38,14 @@ $ mkdir public/files
 $ chmod -R 777 public/files
 ```
 
+## Configuration
+
+Publish the default config file to your application so you can make modifications.
+
+```console
+$ php artisan config:publish dmyers/laravel-storage
+```
+
 ## Usage
 
 Check if a file exists in storage:
