@@ -22,6 +22,12 @@ class AmazonS3 extends Base
 			throw new \RuntimeException('AmazonS3 secret config required.');
 		}
 		
+		$region = $this->config('region');
+
+		if (empty($region)) {
+			throw new \RuntimeException('AmazonS3 region config required.');
+		}
+
 		$bucket = $this->config('bucket');
 		
 		if (empty($bucket)) {
@@ -33,6 +39,7 @@ class AmazonS3 extends Base
 		$this->client = S3Client::factory(array(
 			'key'    => $key,
 			'secret' => $secret,
+			'region' => $region,
 		));
 	}
 	
