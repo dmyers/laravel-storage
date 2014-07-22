@@ -216,10 +216,18 @@ class AmazonS3 extends Base
 	 */
 	public function files($path)
 	{
-		return $this->client->listKeys(array(
+		$files = array();
+		
+		$iterator = $this->client->getIterator('ListObjects', array(
 			'Bucket' => $this->bucket,
 			'Prefix' => $this->computePath($path),
 		));
+		
+		foreach ($iterator as $object) {
+			$files[] = $object['Key'];
+		}
+		
+		return $files;
 	}
 	
 	/**
