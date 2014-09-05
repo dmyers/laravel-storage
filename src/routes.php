@@ -1,6 +1,6 @@
 <?php
 
-if ($route_path = Storage::config('route_path')) {
+if ($route_path = Storage::config('route_path', false)) {
 	// Register storage route.
 	\Route::get($route_path.'{path}', function ($path) {
 		try {
