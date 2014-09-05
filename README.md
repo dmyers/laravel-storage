@@ -7,7 +7,7 @@ Storage is a filesystem abstraction layer for Laravel 4 applications.
 Add this to you composer.json file, in the require object:
 
 ```javascript
-"dmyers/laravel-storage": "dev-master"
+"dmyers/laravel-storage": "1.*"
 ```
 
 After that, run composer install to install Storage.
