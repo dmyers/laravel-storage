@@ -12,6 +12,8 @@ class AmazonS3 extends Base
 	{
 		$key = $this->config('key');
 		
+		$region = $this->config('region');
+		
 		if (empty($key)) {
 			throw new \RuntimeException('AmazonS3 key config required.');
 		}
@@ -20,12 +22,6 @@ class AmazonS3 extends Base
 		
 		if (empty($secret)) {
 			throw new \RuntimeException('AmazonS3 secret config required.');
-		}
-		
-		$region = $this->config('region');
-
-		if (empty($region)) {
-			throw new \RuntimeException('AmazonS3 region config required.');
 		}
 
 		$bucket = $this->config('bucket');
