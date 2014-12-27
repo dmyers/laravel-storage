@@ -17,7 +17,7 @@
         "aws/aws-sdk-php": "2.*"
     },
     "suggest": {
-        "aws/aws-sdk-php": "2.*"
+        "aws/aws-sdk-php": "Required for AmazonS3 driver."
     },
     "autoload": {
         "classmap": [
