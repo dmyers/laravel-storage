@@ -69,7 +69,7 @@ Storage::put('user/avatar.jpg', $contents);
 Upload a file into storage:
 
 ```php
-Storage::upload($_FILES['avatar'], 'user/avatar.jpg');
+Storage::upload(Input::file('avatar'), 'user/avatar.jpg');
 ```
 
 Download a file from storage:
