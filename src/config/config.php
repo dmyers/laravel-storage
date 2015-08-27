@@ -25,7 +25,7 @@ return array(
 	'amazons3' => array(
 		'key'    => '',
 		'secret' => '',
-		'region' => '',
+		'region' => 'us-east-1',
 		'bucket' => '',
 		'acl'    => 'public-read',
 	),
