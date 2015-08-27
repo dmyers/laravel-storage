@@ -201,7 +201,7 @@ class AmazonS3 extends Base
 		$result = $this->client->listObjects(array(
 			'Bucket'  => $this->bucket,
 			'Prefix'  => $this->computePath($path),
-			'Maxkeys' => 1,
+			'MaxKeys' => 1,
 		));
 		
 		return count($result) > 0;
