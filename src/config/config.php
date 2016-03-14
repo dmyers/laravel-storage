@@ -54,4 +54,14 @@ return array(
 	*/
 	'route_path' => false,
 	
+	/*
+	|--------------------------------------------------------------------------
+	| Temporary Path
+	|--------------------------------------------------------------------------
+	|
+	| The path that is used temporarily to download remote files.
+	|
+	*/
+	'tmp_path' => storage_path('tmp'),
+	
 );
