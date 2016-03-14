@@ -74,10 +74,22 @@ Upload a file into storage:
 Storage::upload(Input::file('avatar'), 'user/avatar.jpg');
 ```
 
+Upload a remote file into storage:
+
+```php
+Storage::remoteUpload('http://laravel.com/favicon.ico', 'user/avatar.jpg');
+```
+
 Download a file from storage:
 
 ```php
 Storage::download('user/avatar.jpg', 'tmp/images/user-1/avatar.jpg');
+```
+
+Download a remote file locally:
+
+```php
+Storage::remoteDownload('http://laravel.com/favicon.ico', 'tmp/images/user-1/avatar.jpg');
 ```
 
 Delete a file from storage:

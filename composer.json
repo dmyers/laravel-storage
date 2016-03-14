@@ -17,7 +17,8 @@
         "aws/aws-sdk-php": "2.*"
     },
     "suggest": {
-        "aws/aws-sdk-php": "Required for AmazonS3 driver."
+        "aws/aws-sdk-php": "Required for AmazonS3 driver.",
+        "guzzlehttp/guzzle": "Required for remote uploads/downloads."
     },
     "autoload": {
         "classmap": [

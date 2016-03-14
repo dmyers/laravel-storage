@@ -50,6 +50,26 @@ abstract class Base
 	abstract public function upload($path, $target);
 	
 	/**
+	 * Upload a remote file into storage.
+	 *
+	 * @param string $url    The url to the remote file to upload.
+	 * @param string $target The path to the file to store.
+	 *
+	 * @return bool
+	 */
+	public function remoteUpload($url, $target)
+	{
+		$tmp_name = md5($url);
+		$tmp_path = Storage::config('tmp_path').'/'.$tmp_name;
+		
+		if (!$this->remoteDownload($url, $tmp_path)) {
+			return false;
+		}
+		
+		return $this->upload($tmp_path, $target);
+	}
+	
+	/**
 	 * Download a file from storage.
 	 *
 	 * @param string $path   The path to the file to download.
@@ -58,6 +78,28 @@ abstract class Base
 	 * @return bool
 	 */
 	abstract public function download($path, $target);
+	
+	/**
+	 * Download a remote file locally.
+	 *
+	 * @param string $url    The url to the remote file to download.
+	 * @param string $target The path to the local file to store.
+	 *
+	 * @return bool
+	 */
+	public function remoteDownload($url, $target)
+	{
+		$client = new \GuzzleHttp\Client();
+		
+		try {
+			$client->get($url, array('save_to' => $target));
+		}
+		catch (\GuzzleHttp\Exception\RequestException $e) {
+			return false;
+		}
+		
+		return true;
+	}
 	
 	/**
 	 * Delete a file from storage.
