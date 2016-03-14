@@ -1,6 +1,8 @@
 # Storage Package for Laravel 4
 
 Storage is a filesystem abstraction layer for Laravel 4 applications.
+If you are using Laravel 5 it comes with a similar package included
+which can be [found in the docs](https://laravel.com/docs/5.0/filesystem).
 
 ## Installation via Composer
 
