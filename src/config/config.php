@@ -27,6 +27,7 @@ return array(
 		'secret' => '',
 		'region' => 'us-east-1',
 		'bucket' => '',
+		'cname'  => '',
 		'acl'    => 'public-read',
 	),
 	

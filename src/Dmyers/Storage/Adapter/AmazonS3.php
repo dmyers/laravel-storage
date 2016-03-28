@@ -231,7 +231,17 @@ class AmazonS3 extends Base
 	 */
 	public function url($path)
 	{
-		return $this->client->getObjectUrl($this->bucket, $this->computePath($path));
+		$url = $this->client->getObjectUrl($this->bucket, $this->computePath($path));
+
+		if ($cname = $this->config('cname')) {
+			return str_replace(
+				parse_url($url, PHP_URL_HOST),
+				$cname,
+				str_replace("{$this->config('bucket')}/", '', $url)
+			);
+		}
+
+		return $url;
 	}
 	
 	protected function ensureBucketExists()
